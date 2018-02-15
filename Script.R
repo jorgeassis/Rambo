@@ -1,31 +1,22 @@
-##
 ## ------------------------------------------------------------------------------------------------------------------
-## Rambo V0.9
-## Random Reductions 2015
+## Rambo V1.0
+## Assis et al., 2018
 ## ------------------------------------------------------------------------------------------------------------------
-##
-## library(Rambo)
-## data(Saccorhiza)
-## View(Saccorhiza)
-##
-## ------------------------------------------------------------------------------------------------------------------
-##
-##
 ## ------------------------------------------------------------------------------------------------------------------
 
 
-
-## missing.data <- 0
-## ncode <- 3
-## replace <- FALSE
-## resample.number.auto <- FALSE
-## resample.number <- 20
-## discard.pops <- NULL
-## number.iteractions <- 999
-## alfa.test <- 0.05
-## clustering.vector <- NULL
-## savefile <- TRUE
-## save.filename <- "richness"
+main.data.file <- "example.file.gen"
+missing.data <- 0
+ncode <- 3
+replace <- FALSE
+resample.number.auto <- FALSE
+resample.number <- 20
+discard.pops <- NULL
+number.iteractions <- 999
+alfa.test <- 0.05
+clustering.vector <- NULL
+savefile <- TRUE
+save.filename <- "richness"
 
 ## ------------------------------------------------------------------------------------------------------------------
 
