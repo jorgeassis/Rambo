@@ -22,15 +22,15 @@ clustering.vector <- NULL <br />
 savefile <- TRUE <br />
 save.filename <- "richness" <br /> <br />
 
-Rambo(main.data.file,  <br />
-      missing.data,  <br />
-      ncode,  <br />
-      replace,  <br />
-      resample.number.auto,  <br />
-      resample.number, <br />
-      discard.pops,  <br />
-      number.iteractions,  <br />
-      alfa.test,  <br />
-      clustering.vector,  <br />
+Rambo(main.data.file,  
+      missing.data,  
+      ncode,  
+      replace,  
+      resample.number.auto, 
+      resample.number, 
+      discard.pops,  
+      number.iteractions, 
+      alfa.test, 
+      clustering.vector,  
       savefile,save.filename) <br /> <br />
       
