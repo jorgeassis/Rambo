@@ -228,15 +228,17 @@ Rambo <- function (main.data.file, missing.data, ncode, replace, resample.number
     flush.console()
 
     resample.array <- vector()
+    resample.array.others <- vector()
 
     for( i in 1:population.n) {
 
       if( sum(individual.names == population.names[i]) < resamp ) {  replace.pop <- TRUE  } else { replace.pop <- replace  }
       resample.array <- c(resample.array,sample(which(individual.names == population.names[i]), resamp, replace = replace.pop))
-
+      resample.array.others <- c(resample.array.others,sample(which(individual.names != population.names[i]), resamp, replace = replace.pop))
     }
 
     data.resamp <- data[ resample.array , ]
+    data.resamp.otehrs <- data[ resample.array.others , ]
 
     unique <- vector()
     unique.others <- vector()
@@ -268,6 +270,7 @@ Rambo <- function (main.data.file, missing.data, ncode, replace, resample.number
     }
 
     he <- Hs(data.resamp)
+    he.other <- Hs(data.resamp.otehrs)
 
     # Place results
 
@@ -276,16 +279,19 @@ Rambo <- function (main.data.file, missing.data, ncode, replace, resample.number
     results.richness[, int] <- alleles
     results.richness.others[, int] <- alleles.other
     results.he[, int] <- he
+    results.he.others[, int] <- he.other
 
   }
 
   results.significance.richness <- numeric(population.n)
   results.significance.unique <- numeric(population.n)
+  results.significance.he <- numeric(population.n)
 
   for (j in 1:population.n ) {
 
     results.significance.richness[j] <- signif(wilcox.test(results.richness[j, ] , results.richness.others[j, ], alternative = "greater")$p.value,3)
     results.significance.unique[j] <- signif(wilcox.test(results.unique[j, ] , results.unique.others[j, ], alternative = "greater")$p.value,3)
+    results.significance.he[j] <- signif(wilcox.test(results.he[j, ] , results.he.others[j, ], alternative = "greater")$p.value,3)
 
   }
 
