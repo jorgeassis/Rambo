@@ -297,6 +297,7 @@ Rambo <- function (main.data.file, missing.data, ncode, replace, resample.number
 
   results.significance.richness[results.significance.richness > alfa.test] <- "NS"
   results.significance.unique[results.significance.unique > alfa.test] <- "NS"
+  results.significance.he[results.significance.he > alfa.test] <- "NS"
 
   if( length(unique(clustering.vector)) == length(individual.n.per.pop) ) {
 
@@ -313,7 +314,9 @@ Rambo <- function (main.data.file, missing.data, ncode, replace, resample.number
                                             Signif.PA = results.significance.unique ,
                                             ... = rep("        ", length(individual.n.per.pop) ) ,
                                             He = round(apply(results.he, 1, mean), 2),
-                                            SD.He = round(apply(results.he, 1, sd), 2)
+                                            SD.He = round(apply(results.he, 1, sd), 2),
+                                            Signif.He = results.significance.he
+
     ) }
 
   if( length(unique(clustering.vector)) != length(individual.n.per.pop) ) {
@@ -329,7 +332,9 @@ Rambo <- function (main.data.file, missing.data, ncode, replace, resample.number
                                             Signif.PA = results.significance.unique ,
                                             ... = rep("        ", length(unique(clustering.vector)) ) ,
                                             He = round(apply(results.he, 1, mean), 2),
-                                            SD.He = round(apply(results.he, 1, sd), 2)
+                                            SD.He = round(apply(results.he, 1, sd), 2),
+                                            Signif.He = results.significance.he
+
     )
 
   }
