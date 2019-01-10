@@ -291,7 +291,7 @@ Rambo <- function (main.data.file, missing.data, ncode, replace, resample.number
 
     results.significance.richness[j] <- signif(wilcox.test(results.richness[j, ] , results.richness.others[j, ], alternative = "greater")$p.value,3)
     results.significance.unique[j] <- signif(wilcox.test(results.unique[j, ] , results.unique.others[j, ], alternative = "greater")$p.value,3)
-    results.significance.he[j] <- signif(wilcox.test(results.he[j, ] , results.he.others[j, ], alternative = "greater")$p.value,3)
+    results.significance.he[j] <- signif(wilcox.test(results.he[j, ] , results.he.others[j, ])$p.value,3)
 
   }
 
