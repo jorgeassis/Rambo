@@ -279,7 +279,8 @@ Rambo <- function (main.data.file, missing.data, ncode, replace, resample.number
     results.richness[, int] <- alleles
     results.richness.others[, int] <- alleles.other
     results.he[, int] <- he
-    results.he.others[, int] <- he.other
+    
+    results.he.others[ which(unique(data@pop) %in% names(he)[which(names(he) %in% names(he.other))]) , int] <- he.other
 
   }
 
