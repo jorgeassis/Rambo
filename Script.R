@@ -300,51 +300,79 @@ Rambo <- function (main.data.file, missing.data, ncode, replace, resample.number
   results.significance.unique[results.significance.unique > alfa.test] <- "NS"
   results.significance.he[results.significance.he > alfa.test] <- "NS"
 
-  if( length(unique(clustering.vector)) == length(individual.n.per.pop) ) {
-
-    main.results.data.frame <-  data.frame( Population = ( population.names.results ) ,
-                                            . = rep("        ", length(individual.n.per.pop) ) ,
-                                            n = individual.n.per.pop ,
-                                            . = rep("        ", length(individual.n.per.pop) ) ,
-                                            A = round(apply(results.richness, 1, mean), 2) ,
-                                            SD.A = round(apply(results.richness, 1, sd), 2) ,
-                                            Signif.A = results.significance.richness ,
-                                            .. = rep("        ", length(individual.n.per.pop) ) ,
-                                            PA = round(apply(results.unique, 1, mean), 2) ,
-                                            SD.PA = round(apply(results.unique, 1, sd), 2) ,
-                                            Signif.PA = results.significance.unique ,
-                                            ... = rep("        ", length(individual.n.per.pop) ) ,
-                                            He = round(apply(results.he, 1, mean), 2),
-                                            SD.He = round(apply(results.he, 1, sd), 2),
-                                            Signif.He = results.significance.he
-
-    ) }
-
-  if( length(unique(clustering.vector)) != length(individual.n.per.pop) ) {
-
-    main.results.data.frame <-  data.frame( Population = 1:length(unique(clustering.vector)) ,
-                                            . = rep("        ", length(unique(clustering.vector)) ) ,
-                                            A = round(apply(results.richness, 1, mean), 2) ,
-                                            SD.A = round(apply(results.richness, 1, sd), 2) ,
-                                            Signif.A = results.significance.richness ,
-                                            .. = rep("        ", length(unique(clustering.vector)) ) ,
-                                            PA = round(apply(results.unique, 1, mean), 2) ,
-                                            SD.PA = round(apply(results.unique, 1, sd), 2) ,
-                                            Signif.PA = results.significance.unique ,
-                                            ... = rep("        ", length(unique(clustering.vector)) ) ,
-                                            He = round(apply(results.he, 1, mean), 2),
-                                            SD.He = round(apply(results.he, 1, sd), 2),
-                                            Signif.He = results.significance.he
-
-    )
-
-  }
-
-  if (savefile) {
-    write.table(  main.results.data.frame , quote = FALSE , file = paste(save.filename, ".txt", sep = ""), sep = ",", row.names = FALSE, col.names = TRUE, na = "NA", dec = ".")
-
-  }
-
+  
+   if( length(unique(clustering.vector)) == length(individual.n.per.pop) ) {
+     
+     main.results.data.frame.file <-  data.frame( Population = ( population.names.results ) ,
+                                             n = individual.n.per.pop ,
+                                             A = round(apply(results.richness, 1, mean), 2) ,
+                                             SD.A = round(apply(results.richness, 1, sd), 2) ,
+                                             Signif.A = results.significance.richness ,
+                                             PA = round(apply(results.unique, 1, mean), 2) ,
+                                             SD.PA = round(apply(results.unique, 1, sd), 2) ,
+                                             Signif.PA = results.significance.unique ,
+                                             He = round(apply(results.he, 1, mean), 2),
+                                             SD.He = round(apply(results.he, 1, sd), 2),
+                                             Signif.He = results.significance.he
+                                             
+     )
+     
+     main.results.data.frame <-  data.frame( Population = ( population.names.results ) ,
+                                             . = rep("        ", length(individual.n.per.pop) ) ,
+                                             n = individual.n.per.pop ,
+                                             . = rep("        ", length(individual.n.per.pop) ) ,
+                                             A = round(apply(results.richness, 1, mean), 2) ,
+                                             SD.A = round(apply(results.richness, 1, sd), 2) ,
+                                             Signif.A = results.significance.richness ,
+                                             .. = rep("        ", length(individual.n.per.pop) ) ,
+                                             PA = round(apply(results.unique, 1, mean), 2) ,
+                                             SD.PA = round(apply(results.unique, 1, sd), 2) ,
+                                             Signif.PA = results.significance.unique ,
+                                             ... = rep("        ", length(individual.n.per.pop) ) ,
+                                             He = round(apply(results.he, 1, mean), 2),
+                                             SD.He = round(apply(results.he, 1, sd), 2),
+                                             Signif.He = results.significance.he
+                                             
+     ) }
+   
+   if( length(unique(clustering.vector)) != length(individual.n.per.pop) ) {
+     
+     main.results.data.frame.file <-  data.frame( Population = 1:length(unique(clustering.vector)) ,
+                                             A = round(apply(results.richness, 1, mean), 2) ,
+                                             SD.A = round(apply(results.richness, 1, sd), 2) ,
+                                             Signif.A = results.significance.richness ,
+                                             PA = round(apply(results.unique, 1, mean), 2) ,
+                                             SD.PA = round(apply(results.unique, 1, sd), 2) ,
+                                             Signif.PA = results.significance.unique ,
+                                             He = round(apply(results.he, 1, mean), 2),
+                                             SD.He = round(apply(results.he, 1, sd), 2),
+                                             Signif.He = results.significance.he
+                                             
+     )
+     
+     main.results.data.frame <-  data.frame( Population = 1:length(unique(clustering.vector)) ,
+                                             . = rep("        ", length(unique(clustering.vector)) ) ,
+                                             A = round(apply(results.richness, 1, mean), 2) ,
+                                             SD.A = round(apply(results.richness, 1, sd), 2) ,
+                                             Signif.A = results.significance.richness ,
+                                             .. = rep("        ", length(unique(clustering.vector)) ) ,
+                                             PA = round(apply(results.unique, 1, mean), 2) ,
+                                             SD.PA = round(apply(results.unique, 1, sd), 2) ,
+                                             Signif.PA = results.significance.unique ,
+                                             ... = rep("        ", length(unique(clustering.vector)) ) ,
+                                             He = round(apply(results.he, 1, mean), 2),
+                                             SD.He = round(apply(results.he, 1, sd), 2),
+                                             Signif.He = results.significance.he
+                                             
+     )
+     
+   }
+   
+   if (savefile) {
+     write.table(  main.results.data.frame.file , quote = FALSE , file = paste(save.filename, ".txt", sep = ""), sep = ";", row.names = FALSE, col.names = TRUE, na = "NA", dec = ".")
+     
+   }
+   
   cat("\n")
   cat("\n")
   cat(" Rambo Results for", number.iteractions," randomizations using", population.n, "populations with", resamp, "individuals" )
