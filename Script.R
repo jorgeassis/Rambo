@@ -369,7 +369,7 @@ Rambo <- function (main.data.file, missing.data, ncode , replace, resample.numbe
   
   cat("\n")
   cat("\n")
-  cat(" Rambo Results for", number.iteractions," randomizations using", population.n, "populations with", resamp, "individuals" )
+  cat(" Rambo Results for", number.iteractions," randomizations using", population.n, "clustered populations with", resamp, "individuals" )
   cat("\n")
   cat(" ------------------------------------------------------------------------------------------------")
   cat("\n")
@@ -378,7 +378,7 @@ Rambo <- function (main.data.file, missing.data, ncode , replace, resample.numbe
   cat("\n")
   cat(" ------------------------------------------------------------------------------------------------")
   cat("\n")
-  cat(" NS for non-significant Wilcoxon tests p-values for differences in mean diversity each population and the global pool (i.e. it is a paired difference test).")
+  cat(" NS for non-significant Wilcoxon tests p-values for differences in mean diversity each clustered population and the global pool (i.e. it is a paired difference test).")
   cat("\n")
   cat("\n")
   
