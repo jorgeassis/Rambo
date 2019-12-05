@@ -1,4 +1,4 @@
-# Rambo
+# Standardized population genetic diversity
 
 Genetic diversity estimation per site or group of sites as standardised allelic richness, standardised number of private alleles and expected heterozygosity determined to the smallest site or group in terms of individuals under a set of randomizations.
 
@@ -16,25 +16,30 @@ Open R and set the working directory (path to) <br>
 Load the main function "Rambo" into memory <br>
 
 ```
-main.data.file <- "example.file.gen"
-missing.data <- 0 
+# Source main function
+source("https://raw.githubusercontent.com/jorgeassis/rambo/master/Script.R")
+main.data.file <- "sampleData.gtx"
+missing.data <- 0
+replace <- FALSE
 ncode <- 3
-replace <- FALSE 
 resample.number.auto <- FALSE
 resample.number <- 20
-discard.pops <- NULL 
-number.iteractions <- 999 
-alfa.test <- 0.05 
-clustering.vector <- NULL 
-savefile <- TRUE
-save.filename <- "richness" 
+discard.pops <- NULL
+number.iteractions <- 999
+alfa.test <- 0.05
+savefile <- FALSE
+save.filename <- "richness"
+# Define a vector to cluster populations
+clustering.vector <- c(1,1,2,2)
 
+
+# Run function
 Rambo(main.data.file, missing.data, ncode, replace, resample.number.auto, resample.number, discard.pops, number.iteractions, alfa.test, clustering.vector, savefile, save.filename)
 ```
 
 ## Authors
 
-* **Jorge Assis** @ [Bears Studio](https://www.bears.studio)
+* **Jorge Assis** @ [theMarineDataScientist](https://medium.com/@jorgemfa)
 
 ## License
 
