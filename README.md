@@ -18,23 +18,24 @@ Load the main function "Rambo" into memory <br>
 ```
 # Source main function
 source("https://raw.githubusercontent.com/jorgeassis/rambo/master/Script.R")
-main.data.file <- "sampleData.gtx"
+main.data.file <- "../Data/Genetics/laminariaPallidaGenPop.gtx"
 missing.data <- 0
 replace <- FALSE
 ncode <- 3
-resample.number.auto <- FALSE
+resample.number.auto <- TRUE
 resample.number <- 20
 discard.pops <- NULL
 number.iteractions <- 999
 alfa.test <- 0.05
 savefile <- FALSE
-save.filename <- "richness"
+save.filename <- "richnessK2"
 # Define a vector to cluster populations
-clustering.vector <- c(1,1,2,2)
-
+clustering.vector <- 1:26 # c(1,1,2,2)
+clustering.vector <- c(rep(1,11),2,2,rep(3,13))
+clustering.vector <- c(rep(1,11),2,2,rep(3,6),rep(4,7))
 
 # Run function
-Rambo(main.data.file, missing.data, ncode, replace, resample.number.auto, resample.number, discard.pops, number.iteractions, alfa.test, clustering.vector, savefile, save.filename)
+Rambo(main.data.file, missing.data, ncode, replace, resample.number.auto, resample.number, discard.pops, number.iteractions, alfa.test, clustering.vector, savefile)
 ```
 
 ## Authors
